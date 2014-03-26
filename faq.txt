@@ -1,0 +1,75 @@
+What is Delta?
+Delta is a subset of Office Suite with only file with changes on native Pydio 5.2.3 release.
+On merging delta files with Pydio 5.2.3, it become Office Suite.
+
+Why Delta?
+With delta you can check the additional code with ease and understand better how Office Suite is coded.
+
+What are the pre-requisites of Delta?
+Delta requires a work copy of Pydio 5.2.3 on your machine.
+You'll have to manually merge the plugins into your Pydio Installtion. 
+
+
+Does Office Suite work with no SQL installtion of Pydio?
+No, Office Suite would only work with MySql installation.
+All the notifications related to tasks are store in database, therefore NoSQl installation will not support Office Suite.
+At the moment only MySQL database installation is supported but you can easily implement it for other databases if you study the code.
+That's where delta would be more helpful as compared to pre-merged installation of Office Suite.
+
+
+How does it work?
+Office Suite extends the file system driver of Pydio and creates tfs. At root of the workspace Tasks can be created and inside a task it works like normal FileSystem folder.
+
+What are tasks?
+Tasks can be understood as special folder, which can be Created, Assigned, Deleted, Accepted, Rejected, Revoked, Started , Paused and Finished or Archieved by users.
+
+I don’t understand. Can you explain further.
+When you create or modify a existing user from settings, you can specify whom will the user report to.
+Like a user can have multiple roles, a user can report to multiple users.
+ACL must be given to all users who want to work with Task Management System.
+
+So, Task Managment System is a workspace?
+Yes, Task management System is workspace like any other but with special function for Task management.
+
+What are the stages of a task in Task Management System?
+A task is initially created, then assigned to other users who reports to the creator.
+User who is assigned the task can choose to accept or reject the task.
+Creator may revoke the task before user accepts it.
+One accepted, a task can be started and paused infinite times. Each time task is started time spent is incremented for the task.
+Finally tasks can be closed (finished) and achieved (hidden)
+
+What information is stored related to a task?
+Task Management System user meta.task plugin to store the following meta information.
+Status, Time Spent in man hours, Created By, Created On, Assiged By, Assigned To, Assigned On, Accepted By, Accepted On, Rejected By, Rejected On, Revoked By, Revoked On, Started By, Started On, Paused By, Paused On, Finished By, Finished On, which are publically displayed in the info panel.
+
+Can Task folder be treated as normal folders?
+Yes, files or folders can be created inside task folder but only inside a task folder and never at the root of Task Management System.
+Only Task folders are allowed at root level of the work space.
+
+Is nesting of the tasks possible?
+No, But it can be easily implemented if you go through the code.
+
+Is Office Suite Supported?
+Office suite is not supported by Pydio as it is an extension. but if you run into problems you can contact us support@fourayam.com
+For the record, I am not developing Office Suite any further, so there will be no upgrade to this release, but if you have issues with the existing code I’ll help.
+
+Is Office Suite Production Ready?
+I'll leave that to you. There are known issues in the code and you may want to test it thoroughly before you use it on production.
+
+Ok, What are the known issue?
+Pydio Supports multiple language and provides a clean framework for localization.
+Each plugin comes with i18n folder which has an array of localized language.
+Office Suite is only made in english and if you want to use it for another language it won’t work.
+But you can update the language pack files if you want to use your localized language and then it will work smoothly.
+I coded office suite to learn and understand Pydio and so should you.
+
+Also, Office Suite is not upgrade proof. Changes have been made to the core and upgrading might break the functionality.
+But if you carefully go through the delta files you can merge the code with any future released.
+Office Suite was built on 5.1 and was later merged with 5.2.3, so merging the code is quite easy since you'll know all the delta files.
+Is Office Suite Licensed?
+Office Suite is open-source under A-GPL like Pyd.io. So feel free to modify, distribute and user office suite.
+
+If you have any further questions feel free to contact me on aaditya@fourayam.com.
+Pydio has good documentation on their site and the community is pretty active.
+http://pyd.io
+ 
